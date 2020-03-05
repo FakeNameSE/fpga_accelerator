@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2015.4 (64-bit)
+# SW Build 1412921 on Wed Nov 18 09:44:32 MST 2015
+# IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015
+# Start of session at: Wed Mar  4 18:05:32 2020
+# Process ID: 14106
+# Current directory: /home/grantlg2/Code/CS_296_41/fpga_accelerator/fpga_accelerator.runs/synth_1
+# Command line: vivado -log top_level.vds -mode batch -messageDb vivado.pb -notrace -source top_level.tcl
+# Log file: /home/grantlg2/Code/CS_296_41/fpga_accelerator/fpga_accelerator.runs/synth_1/top_level.vds
+# Journal file: /home/grantlg2/Code/CS_296_41/fpga_accelerator/fpga_accelerator.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source top_level.tcl -notrace

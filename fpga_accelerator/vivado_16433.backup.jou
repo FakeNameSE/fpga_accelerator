@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2015.4 (64-bit)
+# SW Build 1412921 on Wed Nov 18 09:44:32 MST 2015
+# IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015
+# Start of session at: Wed Mar  4 18:11:22 2020
+# Process ID: 16433
+# Current directory: /home/grantlg2/Code/CS_296_41/Final_Project/fpga_accelerator
+# Command line: vivado .
+# Log file: /home/grantlg2/Code/CS_296_41/Final_Project/fpga_accelerator/vivado.log
+# Journal file: /home/grantlg2/Code/CS_296_41/Final_Project/fpga_accelerator/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/grantlg2/Code/CS_296_41/Final_Project/fpga_accelerator/fpga_accelerator.xpr
