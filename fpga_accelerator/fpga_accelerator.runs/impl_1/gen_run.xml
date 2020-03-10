@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1583366760">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1583881141">
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="RDI-RDI" Name="top_level.vdi"/>
   <File Type="BG-DRC" Name="top_level.drc"/>
@@ -56,6 +56,13 @@
   <File Type="RUN-CONSTRS" Name="$PDATADIR/runs/impl_1/constrs_in.xml"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/register.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/uart.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -80,7 +87,7 @@
     <Filter Type="Constrs"/>
     <File Path="$PSRCDIR/constrs_1/imports/src/Basys3_Master.xdc">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../CS_233/Lab/FPGALab3/src/Basys3_Master.xdc"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../CS_233/Lab/FPGALab3/src/Basys3_Master.xdc"/>
         <Attr Name="ImportTime" Val="1574190142"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>

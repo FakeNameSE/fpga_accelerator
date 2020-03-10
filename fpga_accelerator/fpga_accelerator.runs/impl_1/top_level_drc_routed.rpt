@@ -1,10 +1,10 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
-----------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2015.4 (lin64) Build 1412921 Wed Nov 18 09:44:32 MST 2015
-| Date         : Wed Mar  4 18:06:26 2020
-| Host         : siebl-0218-16.ews.illinois.edu running 64-bit CentOS Linux release 7.7.1908 (Core)
+| Date         : Tue Mar 10 17:59:54 2020
+| Host         : gelib-4c-41.ews.illinois.edu running 64-bit CentOS Linux release 7.7.1908 (Core)
 | Command      : report_drc
-----------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
 
 Report DRC
 
@@ -26,12 +26,12 @@ Table of Contents
 -----------------
 BUFC-1#1 Warning
 Input Buffer Connections  
-Input buffer JB[3]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Input buffer JC_rx_IBUF_inst has no loads. An input buffer must drive an internal load.
 Related violations: <none>
 
 BUFC-1#2 Warning
 Input Buffer Connections  
-Input buffer JB[5]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Input buffer clk_IBUF_inst has no loads. An input buffer must drive an internal load.
 Related violations: <none>
 
 CFGBVS-1#1 Warning
@@ -49,7 +49,7 @@ Related violations: <none>
 
 RTSTAT-10#1 Warning
 No routable loads  
-2 net(s) have no routable loads. The problem bus(es) and/or net(s) are JB[3]_IBUF, JB[5]_IBUF.
+2 net(s) have no routable loads. The problem bus(es) and/or net(s) are JC_rx_IBUF, clk_IBUF.
 Related violations: <none>
 
 

@@ -1,12 +1,12 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
-----------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2015.4 (lin64) Build 1412921 Wed Nov 18 09:44:32 MST 2015
-| Date         : Wed Mar  4 18:06:17 2020
-| Host         : siebl-0218-16.ews.illinois.edu running 64-bit CentOS Linux release 7.7.1908 (Core)
+| Date         : Tue Mar 10 17:59:44 2020
+| Host         : gelib-4c-41.ews.illinois.edu running 64-bit CentOS Linux release 7.7.1908 (Core)
 | Command      : report_control_sets -verbose -file top_level_control_sets_placed.rpt
 | Design       : top_level
 | Device       : xc7a35t
-----------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
 
 Control Set Information
 
@@ -22,8 +22,8 @@ Table of Contents
 +-------------------------------------------------------------------+-------+
 |                               Status                              | Count |
 +-------------------------------------------------------------------+-------+
-| Number of unique control sets                                     |     2 |
-| Minimum Number of register sites lost to control set restrictions |     5 |
+| Number of unique control sets                                     |     0 |
+| Minimum Number of register sites lost to control set restrictions |     0 |
 +-------------------------------------------------------------------+-------+
 
 
@@ -33,10 +33,10 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              19 |            8 |
+| No           | No                    | No                     |               0 |            0 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |               8 |            4 |
+| Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
@@ -45,11 +45,8 @@ Table of Contents
 3. Detailed Control Set Information
 -----------------------------------
 
-+----------------+------------------+------------------+------------------+----------------+
-|  Clock Signal  |   Enable Signal  | Set/Reset Signal | Slice Load Count | Bel Load Count |
-+----------------+------------------+------------------+------------------+----------------+
-|  clk_IBUF_BUFG | rx/r_Clock_Count |                  |                4 |              8 |
-|  clk_IBUF_BUFG |                  |                  |                8 |             19 |
-+----------------+------------------+------------------+------------------+----------------+
++--------------+---------------+------------------+------------------+----------------+
+| Clock Signal | Enable Signal | Set/Reset Signal | Slice Load Count | Bel Load Count |
++--------------+---------------+------------------+------------------+----------------+
 
 

@@ -1,14 +1,14 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
-----------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2015.4 (lin64) Build 1412921 Wed Nov 18 09:44:32 MST 2015
-| Date         : Wed Mar  4 18:06:17 2020
-| Host         : siebl-0218-16.ews.illinois.edu running 64-bit CentOS Linux release 7.7.1908 (Core)
+| Date         : Tue Mar 10 17:59:44 2020
+| Host         : gelib-4c-41.ews.illinois.edu running 64-bit CentOS Linux release 7.7.1908 (Core)
 | Command      : report_io -file top_level_io_placed.rpt
 | Design       : top_level
 | Device       : xc7a35t
 | Speed File   : -1
 | Package      : cpg236
-----------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
 
 IO Information
 
@@ -23,7 +23,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|            20 |
+|            19 |
 +---------------+
 
 
@@ -47,9 +47,9 @@ Table of Contents
 | A12        |             | Dedicated  | VP_0                         | XADC          |             |       0 |            |      |                     |                      |         |            |           |          |      |                  |
 | A13        |             | Dedicated  | VREFN_0                      | XADC          |             |       0 |            |      |                     |                      |         |            |           |          |      |                  |
 | A14        |             | High Range | IO_L6P_T0_16                 | User IO       |             |      16 |            |      |                     |                      |         |            |           |          |      |                  |
-| A15        | JB[4]       | High Range | IO_L6N_T0_VREF_16            | INPUT         | LVCMOS33    |      16 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |
+| A15        |             | High Range | IO_L6N_T0_VREF_16            | User IO       |             |      16 |            |      |                     |                      |         |            |           |          |      |                  |
 | A16        |             | High Range | IO_L12P_T1_MRCC_16           | User IO       |             |      16 |            |      |                     |                      |         |            |           |          |      |                  |
-| A17        | JB[5]       | High Range | IO_L12N_T1_MRCC_16           | INPUT         | LVCMOS33    |      16 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |
+| A17        |             | High Range | IO_L12N_T1_MRCC_16           | User IO       |             |      16 |            |      |                     |                      |         |            |           |          |      |                  |
 | A18        |             | High Range | IO_L19N_T3_VREF_16           | User IO       |             |      16 |            |      |                     |                      |         |            |           |          |      |                  |
 | A19        |             |            | GND                          | GND           |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |
 | B1         |             |            | MGTAVTT                      | Gigabit Power |             |         |            |      |                     |                      |         |            |           |          |      |                  |
@@ -67,10 +67,10 @@ Table of Contents
 | B13        |             | Dedicated  | VN_0                         | XADC          |             |       0 |            |      |                     |                      |         |            |           |          |      |                  |
 | B14        |             |            | GND                          | GND           |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |
 | B15        |             | High Range | IO_L11N_T1_SRCC_16           | User IO       |             |      16 |            |      |                     |                      |         |            |           |          |      |                  |
-| B16        | JB[3]       | High Range | IO_L13N_T2_MRCC_16           | INPUT         | LVCMOS33    |      16 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |
+| B16        |             | High Range | IO_L13N_T2_MRCC_16           | User IO       |             |      16 |            |      |                     |                      |         |            |           |          |      |                  |
 | B17        |             | High Range | IO_L14N_T2_SRCC_16           | User IO       |             |      16 |            |      |                     |                      |         |            |           |          |      |                  |
 | B18        |             | High Range | IO_L19P_T3_16                | User IO       |             |      16 |            |      |                     |                      |         |            |           |          |      |                  |
-| B19        |             | High Range | VCCO_16                      | VCCO          |             |      16 |            |      |                     |                      |    3.30 |            |           |          |      |                  |
+| B19        |             | High Range | VCCO_16                      | VCCO          |             |      16 |            |      |                     |                      |   any** |            |           |          |      |                  |
 | C1         |             |            | MGTAVCC                      | Gigabit Power |             |         |            |      |                     |                      |         |            |           |          |      |                  |
 | C2         |             |            | GND                          | GND           |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |
 | C3         |             |            | GND                          | GND           |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |
@@ -84,11 +84,11 @@ Table of Contents
 | C11        |             | Dedicated  | CCLK_0                       | Config        |             |       0 |            |      |                     |                      |         |            |           |          |      |                  |
 | C12        |             | Dedicated  | GNDADC_0                     | XADC          |             |       0 |            |      |                     |                      |         |            |           |          |      |                  |
 | C13        |             | Dedicated  | VCCADC_0                     | XADC          |             |       0 |            |      |                     |                      |         |            |           |          |      |                  |
-| C14        |             | High Range | VCCO_16                      | VCCO          |             |      16 |            |      |                     |                      |    3.30 |            |           |          |      |                  |
+| C14        |             | High Range | VCCO_16                      | VCCO          |             |      16 |            |      |                     |                      |   any** |            |           |          |      |                  |
 | C15        |             | High Range | IO_L11P_T1_SRCC_16           | User IO       |             |      16 |            |      |                     |                      |         |            |           |          |      |                  |
 | C16        |             | High Range | IO_L13P_T2_MRCC_16           | User IO       |             |      16 |            |      |                     |                      |         |            |           |          |      |                  |
 | C17        |             | High Range | IO_L14P_T2_SRCC_16           | User IO       |             |      16 |            |      |                     |                      |         |            |           |          |      |                  |
-| C18        |             | High Range | VCCO_16                      | VCCO          |             |      16 |            |      |                     |                      |    3.30 |            |           |          |      |                  |
+| C18        |             | High Range | VCCO_16                      | VCCO          |             |      16 |            |      |                     |                      |   any** |            |           |          |      |                  |
 | C19        |             |            | GND                          | GND           |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |
 | D1         |             |            | MGTPTXN0_216                 | Gigabit       |             |         |            |      |                     |                      |         |            |           |          |      |                  |
 | D2         |             |            | MGTPTXP0_216                 | Gigabit       |             |         |            |      |                     |                      |         |            |           |          |      |                  |
@@ -117,7 +117,7 @@ Table of Contents
 | G10        |             |            | VCCINT                       | VCCINT        |             |         |            |      |                     |                      |         |            |           |          |      |                  |
 | G11        |             |            | GND                          | GND           |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |
 | G12        |             | Dedicated  | VCCO_0                       | VCCO          |             |       0 |            |      |                     |                      |   any** |            |           |          |      |                  |
-| G13        |             | High Range | VCCO_16                      | VCCO          |             |      16 |            |      |                     |                      |    3.30 |            |           |          |      |                  |
+| G13        |             | High Range | VCCO_16                      | VCCO          |             |      16 |            |      |                     |                      |   any** |            |           |          |      |                  |
 | G17        |             | High Range | IO_L5N_T0_D07_14             | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |
 | G18        |             | High Range | IO_L2P_T0_D02_14             | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |
 | G19        |             | High Range | IO_L4N_T0_D05_14             | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |
@@ -193,14 +193,14 @@ Table of Contents
 | N11        |             |            | VCCBRAM                      | VCCBRAM       |             |         |            |      |                     |                      |         |            |           |          |      |                  |
 | N12        |             |            | GND                          | GND           |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |
 | N13        |             |            | GND                          | GND           |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |
-| N17        |             | High Range | IO_L13P_T2_MRCC_14           | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |
+| N17        | JC_tx       | High Range | IO_L13P_T2_MRCC_14           | OUTPUT        | LVCMOS33    |      14 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |
 | N18        |             | High Range | IO_L9P_T1_DQS_14             | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |
 | N19        |             | High Range | IO_L9N_T1_DQS_D13_14         | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |
 | P1         | led[14]     | High Range | IO_L19N_T3_VREF_35           | OUTPUT        | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |
 | P2         |             |            | GND                          | GND           |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |
 | P3         | led[12]     | High Range | IO_L12N_T1_MRCC_35           | OUTPUT        | LVCMOS33    |      35 |         12 | SLOW |                     |            FP_VTT_50 |         | FIXED      |           |          |      | NONE             |
 | P17        |             | High Range | IO_L13N_T2_MRCC_14           | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |
-| P18        |             | High Range | IO_L14P_T2_SRCC_14           | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |
+| P18        | JC_rx       | High Range | IO_L14P_T2_SRCC_14           | INPUT         | LVCMOS33    |      14 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |
 | P19        |             | High Range | IO_L10P_T1_D14_14            | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |
 | R1         |             | High Range | VCCO_34                      | VCCO          |             |      34 |            |      |                     |                      |    3.30 |            |           |          |      |                  |
 | R2         |             | High Range | IO_L1P_T0_34                 | User IO       |             |      34 |            |      |                     |                      |         |            |           |          |      |                  |
