@@ -1,9 +1,9 @@
-#
-# Vivado(TM)
-# htr.txt: a Vivado-generated description of how-to-repeat the
-#          the basic steps of a run.  Note that runme.bat/sh needs
-#          to be invoked for Vivado to track run status.
-# Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
-#
+REM
+REM Vivado(TM)
+REM htr.txt: a Vivado-generated description of how-to-repeat the
+REM          the basic steps of a run.  Note that runme.bat/sh needs
+REM          to be invoked for Vivado to track run status.
+REM Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+REM
 
-vivado -log top_level.vds -m64 -mode batch -messageDb vivado.pb -notrace -source top_level.tcl
+vivado -log UART_receiver.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source UART_receiver.tcl

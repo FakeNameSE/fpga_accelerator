@@ -1,12 +1,12 @@
 #-----------------------------------------------------------
-# Vivado v2015.4 (64-bit)
-# SW Build 1412921 on Wed Nov 18 09:44:32 MST 2015
-# IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015
-# Start of session at: Tue Mar 10 17:59:01 2020
-# Process ID: 874229
-# Current directory: /home/jatinm2/Desktop/fpga_accelerator/fpga_accelerator/fpga_accelerator.runs/synth_1
-# Command line: vivado -log top_level.vds -mode batch -messageDb vivado.pb -notrace -source top_level.tcl
-# Log file: /home/jatinm2/Desktop/fpga_accelerator/fpga_accelerator/fpga_accelerator.runs/synth_1/top_level.vds
-# Journal file: /home/jatinm2/Desktop/fpga_accelerator/fpga_accelerator/fpga_accelerator.runs/synth_1/vivado.jou
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Tue Mar 24 23:00:41 2020
+# Process ID: 12000
+# Current directory: C:/Users/jatin/Desktop/CS_296-41_Final_Project/fpga_accelerator/fpga_accelerator.runs/synth_1
+# Command line: vivado.exe -log UART_receiver.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source UART_receiver.tcl
+# Log file: C:/Users/jatin/Desktop/CS_296-41_Final_Project/fpga_accelerator/fpga_accelerator.runs/synth_1/UART_receiver.vds
+# Journal file: C:/Users/jatin/Desktop/CS_296-41_Final_Project/fpga_accelerator/fpga_accelerator.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source top_level.tcl -notrace
+source UART_receiver.tcl -notrace

@@ -2,41 +2,24 @@
 
 module top_level(
     input clk,
-    input JC_rx,
-    output JC_tx,
+    input RxD,
+//    input sw_reset,
+    output TxD,
     output [15:0] led
 );
-    wire rx_DV;
-    wire tx_DV; 
-    wire[7:0] rx_Byte;
+    wire sw_reset = 1'b0;
     wire lock;
+    wire uart_rx_done;
+    wire [7:0] uart_rx_data;
     wire [7:0] led_byte;
-    
-    uart_rx #(870) rx(clk, JB_rx, rx_DV, rx_Byte);
-    
-    // q      (output) - Current value of register
-    // d      (input)  - Next value of register
-    // clk    (input)  - Clock (positive edge-sensitive)
-    // enable (input)  - Load new value? (yes = 1, no = 0)
-    // reset  (input)  - Asynchronous reset    (reset = 1)
-    //
-    register #(1) store_rx_dv(lock, 1'b1, clk, rx_DV, 1'b0);
-    register #(8) my_led_reg(led_byte, rx_Byte, clk, ~lock, 1'b0);
-    // uart_tx tx(clk, , JB[4], rx_DV, rx_Byte);
-    
-    
-//      (
-//     input       i_Clock,
-//     input       i_Tx_DV,
-//     input [7:0] i_Tx_Byte, 
-//     output      o_Tx_Active,
-//     output reg  o_Tx_Serial,
-//     output      o_Tx_Done
-//     );
+    receiever jatin_rules(uart_rx_data, uart_rx_done, clk, sw_reset, RxD);
 
+    register #(1) store_lock(lock, 1'b1, clk, uart_rx_done, sw_reset);
+    register #(8) my_led_reg(led_byte, uart_rx_data, clk, ~lock, sw_reset);
+            
     assign led[7:0] = led_byte;
-    assign led[15] = ~lock;
-    assign JB_tx = 0;
-
+    assign led[15] = sw_reset;
+    assign TxD = 1'b1;
+    
 endmodule
 
