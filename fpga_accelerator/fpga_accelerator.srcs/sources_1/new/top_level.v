@@ -3,23 +3,29 @@
 module top_level(
     input clk,
     input RxD,
-//    input sw_reset,
+    input sw_reset,
     output TxD,
     output [15:0] led
 );
-    wire sw_reset = 1'b0;
-    wire lock;
-    wire uart_rx_done;
-    wire [7:0] uart_rx_data;
-    wire [7:0] led_byte;
-    receiever jatin_rules(uart_rx_data, uart_rx_done, clk, sw_reset, RxD);
-
-    register #(1) store_lock(lock, 1'b1, clk, uart_rx_done, sw_reset);
-    register #(8) my_led_reg(led_byte, uart_rx_data, clk, ~lock, sw_reset);
-            
-    assign led[7:0] = led_byte;
+    
+    wire can_receive = 1'b1;
+    wire done_reading;
+    wire [7:0] data_byte;
+    uart_rx recv(clk, sw_reset, can_receive, RxD, done_reading, data_byte);
+    
+    assign led[7:0] = data_byte;
     assign led[15] = sw_reset;
-    assign TxD = 1'b1;
+   
+    // adds a clock of delay between when done_reading is set
+    // this ensure synchronization as uart_rx changes done_reading
+    reg can_transmit;
+    reg [7:0] send_data = 0;
+    always @(posedge clk)
+        begin
+        can_transmit <= done_reading;
+        send_data <= data_byte;
+        end
+        
+    uart_tx send(clk, sw_reset, can_transmit, send_data, , TxD, );
     
 endmodule
-
