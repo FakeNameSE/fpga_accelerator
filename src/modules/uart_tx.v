@@ -1,7 +1,23 @@
-// Set Parameter CLKS_PER_BIT as follows:
-// CLKS_PER_BIT = (Frequency of i_Clock)/(Frequency of UART)
-// Example: 10 MHz Clock, 115200 baud UART
-// (10000000)/(115200) = 87
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/25/2020 05:29:52 PM
+// Design Name: 
+// Module Name: uart_tx
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
 
 module uart_tx
   (
@@ -10,7 +26,7 @@ module uart_tx
    input       i_Tx_DV,
    input [7:0] i_Tx_Byte,
    output      o_Tx_Active,
-   output reg  o_Tx_Serial,
+   output      o_Tx_Serial,
    output      o_Tx_Done
    );
 
@@ -27,6 +43,7 @@ module uart_tx
   reg [7:0]    r_Tx_Data     = 0;
   reg          r_Tx_Done     = 0;
   reg          r_Tx_Active   = 0;
+  reg          r_Tx_Serial   = 1'b1;
 
   always @(posedge i_Clock)
     begin
@@ -39,10 +56,12 @@ module uart_tx
         case (r_SM_Main)
             s_IDLE :
               begin
-                o_Tx_Serial   <= 1'b1;         // Drive Line High for Idle
+                r_Tx_Serial   <= 1'b1;         // Drive Line High for Idle
                 r_Tx_Done     <= 1'b0;
                 r_Clock_Count <= 0;
                 r_Bit_Index   <= 0;
+                r_Tx_Data <= 0;
+                r_Tx_Active <= 0;
 
                 if (i_Tx_DV == 1'b1) // if can transmit
                   begin
@@ -58,7 +77,7 @@ module uart_tx
             // Send out Start Bit. Start bit = 0
             s_TX_START_BIT :
               begin
-                o_Tx_Serial <= 1'b0;
+                r_Tx_Serial <= 1'b0;
 
                 // Wait CLKS_PER_BIT - 1  clock cycles for start bit to finish to properly sample at baud rate
                 if (r_Clock_Count < CLKS_PER_BIT - 1)
@@ -77,7 +96,7 @@ module uart_tx
             // Wait CLKS_PER_BIT - 1 clock cycles for data bits to finish
             s_TX_DATA_BITS :
               begin
-                o_Tx_Serial <= r_Tx_Data[r_Bit_Index]; // start transmitting current bit
+                r_Tx_Serial <= r_Tx_Data[r_Bit_Index]; // start transmitting current bit
 
                 if (r_Clock_Count < CLKS_PER_BIT - 1)
                   begin
@@ -106,7 +125,7 @@ module uart_tx
             // Send out Stop bit.  Stop bit = 1
             s_TX_STOP_BIT :
               begin
-                o_Tx_Serial <= 1'b1;
+                r_Tx_Serial <= 1'b1;
 
                 // Wait CLKS_PER_BIT-1 clock cycles for Stop bit to finish
                 if (r_Clock_Count < CLKS_PER_BIT-1)
@@ -127,7 +146,7 @@ module uart_tx
             // Stay here 1 clock
             s_CLEANUP :
               begin
-                r_Tx_Done <= 1'b1;
+                r_Tx_Done <= 1'b0;
                 r_SM_Main <= s_IDLE;
               end
 
@@ -140,6 +159,7 @@ module uart_tx
      end // ends initial if reset (reset stuff) else (main)
 
   assign o_Tx_Active = r_Tx_Active;
+  assign o_Tx_Serial = r_Tx_Serial;
   assign o_Tx_Done   = r_Tx_Done;
 
 endmodule

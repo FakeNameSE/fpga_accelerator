@@ -4,7 +4,7 @@
 // Module: test_rx
 // 
 // Notes:
-// - Top level simulation testbench.
+// - rx simulation testbench.
 // - Uses a working tx to test
 
 // module uart_rx 
@@ -56,9 +56,6 @@ module test_rx;
           #200000 // send and receive 'b'
           $finish;
   end
-
-  // initial
-  //  $monitor("At time %t, value = %h (%0d)", $time, value, value);
 
   uart_tx i_uart_tx(clk, reset, uart_tx_en, uart_tx_data, , uart_txd, );
   uart_rx i_uart_rx(clk, reset, can_receive, uart_rxd, uart_rx_done, uart_rx_byte);

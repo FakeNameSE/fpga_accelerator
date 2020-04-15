@@ -4,7 +4,7 @@
 // Module: 
 // 
 // Notes:
-// - Top level simulation testbench.
+// - tx level simulation testbench.
 //
 
 // module uart_tx 
@@ -45,9 +45,6 @@ module test_tx;
           #104160
           $finish;
   end
-
-  // initial
-  //  $monitor("At time %t, value = %h (%0d)", $time, value, value);
 
   uart_tx i_uart_tx( clk, reset, uart_tx_en, uart_tx_data, uart_tx_active, uart_txd, uart_tx_done);
 

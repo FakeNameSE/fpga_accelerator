@@ -58,6 +58,15 @@ module uart_rx
                 begin
                     r_SM_Main <= s_CAN_RECV;
                 end
+            else
+              begin
+                r_Rx_Data_R <= 0;
+                r_Rx_Data <= 0;
+                r_Clock_Count <= 0;
+                r_Bit_Index <= 0;
+                r_Rx_Byte <= 0;
+                r_Rx_DV <= 0;
+              end
           end
 
         s_CAN_RECV:
@@ -104,11 +113,11 @@ module uart_rx
               begin
                 r_Clock_Count <= r_Clock_Count + 1;
                 r_SM_Main     <= s_RX_DATA_BITS;
+                r_Rx_Byte[r_Bit_Index] <= r_Rx_Data;
               end
             else
               begin
                 r_Clock_Count          <= 0;
-                r_Rx_Byte[r_Bit_Index] <= r_Rx_Data;
 
                 // Check if we have received all bits
                 if (r_Bit_Index < 7)
@@ -148,7 +157,7 @@ module uart_rx
         s_CLEANUP :
           begin
             r_SM_Main <= s_IDLE;
-            r_Rx_DV   <= 1'b0;
+            r_Rx_DV   <= 1'b0;            
           end
 
 

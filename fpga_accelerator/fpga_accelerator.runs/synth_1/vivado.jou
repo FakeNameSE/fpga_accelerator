@@ -2,8 +2,8 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Wed Mar 25 19:45:46 2020
-# Process ID: 5912
+# Start of session at: Wed Apr 15 02:56:49 2020
+# Process ID: 10772
 # Current directory: C:/Users/jatin/Desktop/CS_296-41_Final_Project/fpga_accelerator/fpga_accelerator.runs/synth_1
 # Command line: vivado.exe -log top_level.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_level.tcl
 # Log file: C:/Users/jatin/Desktop/CS_296-41_Final_Project/fpga_accelerator/fpga_accelerator.runs/synth_1/top_level.vds

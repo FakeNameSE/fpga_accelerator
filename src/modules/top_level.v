@@ -146,7 +146,7 @@ module top_level(
         end
         end
 
-    uart_rx #(868) recv(clk, reset, 1'b1, RxD, done_reading, data_byte);
+    uart_rx recv(clk, reset, 1'b1, RxD, done_reading, data_byte);
 
 //    regfile received_data(
 //      .rsData(operand_a), .rtData(operand_b), .rsNum(A), .rtNum(B), .rdNum(cur_byte),
@@ -158,6 +158,6 @@ module top_level(
 
     accelerator compute(.clk(clk), .A(operand_a), .B(operand_b), .result(result), .done(result_done));
 
-    uart_tx #(868) transmitter(clk, reset, r_transmit, r_result, , TxD, done_transmitting);
+    uart_tx transmitter(clk, reset, r_transmit, r_result, , TxD, done_transmitting);
 
 endmodule

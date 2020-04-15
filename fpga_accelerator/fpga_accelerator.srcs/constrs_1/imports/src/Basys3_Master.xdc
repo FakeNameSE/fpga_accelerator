@@ -264,10 +264,10 @@ set_property IOSTANDARD LVCMOS33 [get_ports {led[15]}]
 
 
 ##USB-RS232 Interface
-set_property PACKAGE_PIN B18 [get_ports RxD]
-set_property IOSTANDARD LVCMOS33 [get_ports RxD]
-set_property PACKAGE_PIN A18 [get_ports TxD]
-set_property IOSTANDARD LVCMOS33 [get_ports TxD]
+set_property PACKAGE_PIN B18 [get_ports in_RxD]
+set_property IOSTANDARD LVCMOS33 [get_ports in_RxD]
+set_property PACKAGE_PIN A18 [get_ports out_TxD]
+set_property IOSTANDARD LVCMOS33 [get_ports out_TxD]
 
 
 ##USB HID (PS/2)
