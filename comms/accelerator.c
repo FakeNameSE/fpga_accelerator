@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <sys/ioctl.h>
 
 int
 set_interface_attribs (int fd, int speed, int parity)
@@ -47,24 +48,6 @@ set_interface_attribs (int fd, int speed, int parity)
         return 0;
 }
 
-void
-set_blocking (int fd, int should_block)
-{
-        struct termios tty;
-        memset (&tty, 0, sizeof tty);
-        if (tcgetattr (fd, &tty) != 0)
-        {
-                // error_message ("error %d from tggetattr", errno);
-                return;
-        }
-
-        tty.c_cc[VMIN]  = should_block ? 1 : 0;
-        tty.c_cc[VTIME] = 5;            // 0.5 seconds read timeout
-
-        // if (tcsetattr (fd, TCSANOW, &tty) != 0)
-                // error_message ("error %d setting term attributes", errno);
-}
-
 int main(int argc, char* argv[]) {
         if (argc < 3) {
             fprintf(stderr, "usage: ./write string bytes_to_send (can be -1 for all) \n");
@@ -82,9 +65,16 @@ int main(int argc, char* argv[]) {
             return 1;
         }
 
-        set_interface_attribs (fd, 9600, 0);  // set speed to 9600 baud, 8n1 (no parity)
-        set_blocking (fd, 0);                // set no blocking
+        fcntl(fd, F_GETFL);
+        fcntl(fd, F_SETFL, O_RDONLY);
+        struct termios options;
+        tcgetattr(fd, &options);
+        cfsetispeed(&options, B115200);
+        cfsetospeed(&options, B115200);
+        tcsetattr(fd, TCSANOW, &options);
 
+        set_interface_attribs(fd, 115200, 0);
+        
         int sent = write (fd, message, bytes_to_send);           // send byte of all 1's
         printf("sent %d bytes\n", sent);
         if (sent != bytes_to_send) {
