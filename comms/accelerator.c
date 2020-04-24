@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/ioctl.h>
+#include <filter.h>
 
 int main(int argc, char* argv[]) {
         if (argc < 3) {
@@ -18,12 +19,13 @@ int main(int argc, char* argv[]) {
         int bytes_to_send = atoi(argv[2]);
         if (bytes_to_send == -1)
                 bytes_to_send = strlen(message);
-        char *portname = "/dev/ttyS4";
+        char *portname = "/dev/ttyUSB1";
         int fd = open (portname, O_RDWR | O_NOCTTY | O_SYNC);
         if (fd < 0) {
             fprintf(stderr, "error %d opening %s: %s\n", errno, portname, strerror (errno));
             return 1;
         }
+        badbad
 
         struct termios options;
         tcgetattr(fd, &options);
