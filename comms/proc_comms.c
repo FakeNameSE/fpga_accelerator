@@ -16,19 +16,24 @@ static ssize_t proc_write(struct file*, const char*, size_t, loff_t*);
 static int proc_open(struct inode*, struct file*);
 static int proc_release(struct inode*, struct file*);
 
+//Kernel Struct
+//Uses callback functions
 static struct file_operations custom_fops = {
-	.owner = THIS_MODULE;
-	.read  = proc_read;
-	.write = proc_write;
-	.open  = proc_open;
-	.release = proc_release;
+	.owner = THIS_MODULE,
+	.read  = proc_read,
+	.write = proc_write,
+	.open  = proc_open,
+	.release = proc_release
 }
 
+//proc file kernel object
 static struct proc_dir_entry* proc_file_entry = NULL;
 
+//Creates proc_file
 static int __int proc_file_init(void){
 	printk(KERN_INFO "Loading proc_file module\n");
-
+	
+	//Kernel function call to create a file in the proc directory
 	proc_file_entry = proc_create(PROC_CONFIG_FILENAME, 0777, NULL, &custom_fops);
 	if(proc_file_entry == NULL){
 		prink(KERN_ALERT "Could not create proc file at /proc/%s\n", PROC_CONFIG_FILENAME);
@@ -38,18 +43,26 @@ static int __int proc_file_init(void){
 	return 0;
 }
 
+//write callback function
+//Invoked when anyone(presumably user) tries to write to PROC_CONFIG_FILENAME
 static ssize_t proc_write(struct file* file, const char* buf, size_t count, loff_t* ppos){
 	
 	return count;
 }
 
+//Invoked when anyone(persumably user) tries to read from PROC_CONFIG_FILENAME
 static ssize_t proc_read(struct file* file, char* buf, size_t count, loff_t* ppos){return 0;}
+
+//Invoked when anyone(persumably user) tries to open PROC_CONFIG_FILENAME
 static int proc_open(struct inode* inode, struct file* file){return 0;}
+
+//Invoked when a file_descriptor is closed to PROC_CONFIG_FILENAME
 static int proc_release(struct inode* inode, struct file* file){return 0;}
 
 static void __exit proc_file_exit(void){
 	printk(KERN_INFO "Cleaning up and exiting proc_file\n");
-
+	
+	//Removes proc_file so there is no error when loading the same file next time
 	proc_remove(proc_dir_entry);
 }
 
