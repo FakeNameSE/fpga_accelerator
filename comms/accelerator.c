@@ -1,20 +1,20 @@
 
 #include <errno.h>
-#include <fcntl.h> 
+#include <fcntl.h>
 #include <string.h>
 #include <termios.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/ioctl.h>
-#include <filter.h>
+#include "filter.h"
 
 int main(int argc, char* argv[]) {
         if (argc < 3) {
             fprintf(stderr, "usage: ./write string bytes_to_send (can be -1 for all) \n");
             return 1;
         }
-        
+
         char *message = argv[1];
         int bytes_to_send = atoi(argv[2]);
         if (bytes_to_send == -1)
@@ -45,7 +45,7 @@ int main(int argc, char* argv[]) {
         options.c_cflag &= ~CSTOPB;
         options.c_cflag &= ~CRTSCTS;
         tcsetattr(fd, TCSANOW, &options);
-        
+
         int sent = write (fd, message, bytes_to_send);           // send byte of all 1's
         printf("sent %d bytes\n", sent);
         if (sent != bytes_to_send) {
@@ -67,4 +67,3 @@ int main(int argc, char* argv[]) {
         close(fd);
         return 0;
 }
-
