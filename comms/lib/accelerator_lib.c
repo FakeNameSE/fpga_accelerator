@@ -60,7 +60,7 @@ result_t accelerator_xor_two_bytes(char* bytes) {
     return result;
   }
 
-  if (write_all_to_fd(accel_fd, &result.result_byte, 1) == -1) {
+  if (read_all_from_fd(accel_fd, &result.result_byte, 1) == -1) {
     result.error = ERROR_RECEIVING_BYTES;
     close(accel_fd);
     return result;
