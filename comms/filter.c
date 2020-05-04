@@ -17,7 +17,7 @@ struct file *file_open(const char *path, int flags, int rights) {
     int err = 0;
 
     oldfs = get_fs();
-    set_fs(get_ds());
+    set_fs(get_fs());
     filp = filp_open(path, flags, rights);
     set_fs(oldfs);
     if (IS_ERR(filp)) {
@@ -37,7 +37,7 @@ int file_write(struct file *file, unsigned long long offset, unsigned char *data
     int ret;
 
     oldfs = get_fs();
-    set_fs(get_ds());
+    set_fs(get_fs());
 
     ret = vfs_write(file, data, size, &offset);
 
@@ -50,7 +50,7 @@ int file_read(struct file *file, unsigned long long offset, unsigned char *data,
     int ret;
 
     oldfs = get_fs();
-    set_fs(get_ds());
+    set_fs(get_fs());
 
     ret = vfs_read(file, data, size, &offset);
 
@@ -74,6 +74,7 @@ int __init setup(void) {
         return 0;
     }
 
+    /*
     struct termios options;
     tcgetattr(fd, &options);
     cfsetispeed(&options, B115200);
@@ -92,6 +93,7 @@ int __init setup(void) {
     options.c_cflag &= ~CSTOPB;
     options.c_cflag &= ~CRTSCTS;
     tcsetattr(fd, TCSANOW, &options);
+    */
 
     // send bytes
     file_write(fp, 0, message, bytes_to_send);

@@ -8,6 +8,7 @@ RM:=rm
 all: modules
 
 obj-m:= filter.o
+obj-m:= proc_comms.o
 
 modules:
 	$(MAKE) -C $(KERNEL_SRC) M=$(SUBDIR) modules
