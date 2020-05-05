@@ -22,7 +22,7 @@ int main(int argc, char const *argv[]) {
     return 1;
   }
 
-  printf("Accelerator computation result: %c", result.result_byte);
+  printf("Accelerator computation result: %c, as int: %d\n", result.result_byte, (int) result.result_byte);
 
   return 0;
 }

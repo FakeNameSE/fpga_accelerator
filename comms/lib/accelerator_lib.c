@@ -48,7 +48,7 @@ bool accelerator_initialize(const char* port_name) {
 result_t accelerator_xor_two_bytes(char* bytes) {
   result_t result = {.error = NO_ERROR};
   // TODO put correct proc filename in here.
-  int accel_fd = open("proc_file", O_WRONLY | O_TRUNC);
+  int accel_fd = open("/proc/custom_proc_file", O_RDWR | O_TRUNC);
   if (accel_fd == -1) {
     result.error = ERROR_OPENING_PROC_FILE;
     return result;

@@ -7,7 +7,6 @@ RM:=rm
 
 all: modules
 
-obj-m:= filter.o
 obj-m:= proc_comms.o
 
 modules:
@@ -18,10 +17,10 @@ clean:
 	$(RM) -f *.ko *.o *.mod.c Module.symvers modules.order *~ .tmp_versions
 
 load:
-	sudo insmod filter.ko
+	sudo insmod proc_comms.ko
 
 unload:
-	sudo rmmod filter
+	sudo rmmod proc_comms
 
 watch:
 	sudo journalctl -xf | grep --color=always "filter:"
