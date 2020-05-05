@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="44" Path="C:/Users/jatin/Desktop/CS_296-41_Final_Project/fpga_accelerator/fpga_accelerator.xpr">
+<Project Version="7" Minor="44" Path="C:/Users/jatin/Desktop/fpga-accelerator/fpga_accelerator/fpga_accelerator.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="fb3bf35b713e41c5b02cd89d7927b545"/>
