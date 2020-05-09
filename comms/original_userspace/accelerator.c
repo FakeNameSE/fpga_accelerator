@@ -25,7 +25,6 @@ int main(int argc, char* argv[]) {
             fprintf(stderr, "error %d opening %s: %s\n", errno, portname, strerror (errno));
             return 1;
         }
-        badbad
 
         struct termios options;
         tcgetattr(fd, &options);
