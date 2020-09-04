@@ -1,5 +1,4 @@
 # fpga_accelerator
-Final Project for CS 241 Honors
 
 ## What Is This?
 This was developed as a team project for the final project of the systems programming honors class CS 296-41
